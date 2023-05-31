@@ -1,0 +1,41 @@
+<style>
+    .a {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<table>
+    <tr>
+        <td><label>Row </label></td>
+        <td><input type="text" id="row"></td>
+    </tr>
+    <tr>
+        <td><label>Column</label></td>
+        <td><input type="text" id="col"></td>
+    </tr>
+    <tr>
+        <td><button onclick="save()">Submit</button></td>
+    </tr>
+</table>
+<table id="root" border="1">
+    <h1 id="ans"></h1>
+</table>
+<script type="text/javascript">
+    const save = () => {
+        var no = 0;
+        let r = document.getElementById('row').value;
+        let c = document.getElementById('col').value;
+        for (let row = 1; row <= r; row++) {
+            let root = document.getElementById('root');
+            let tr = document.createElement('tr');
+            for (let col = 1; col <= c; col++) {
+                let td = document.createElement('td');
+                td.setAttribute('class', 'a');
+                tr.appendChild(td);
+                no++;
+                document.getElementById('ans').innerHTML = no;
+            }
+            root.appendChild(tr);
+        }
+    }
+</script>
